@@ -13,7 +13,7 @@ import java.io.IOException;
 @Configuration
 public class MessagesConfiguration {
 
-    private static final String ENDPOINT = "https://fcm.googleapis.com/fcm";
+    private static final String ENDPOINT = "https://fcm.googleapis.com/fcm/";
     private static final String CONTENT_TYPE = "application/json";
     @Value("${fcm.api_key}") String apiKey;
 
@@ -26,7 +26,7 @@ public class MessagesConfiguration {
         Request original = chain.request();
         Request.Builder builder = original.newBuilder();
 
-        builder.addHeader("Content-Type", "Gitskarios");
+        builder.addHeader("Content-Type", CONTENT_TYPE);
         builder.addHeader("Authorization", "key=" + apiKey);
 
         HttpUrl url = original.url();

@@ -7,6 +7,6 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface MessageService {
-    @POST("/send")
+    @POST("send")
     Call<MessageResponse> sendMessage(@Body MessageRequest messageRequest);
 }

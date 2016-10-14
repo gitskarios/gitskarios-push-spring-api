@@ -4,6 +4,7 @@ public class Repository {
     private long id;
     private String name;
     private String full_name;
+    private User owner;
 
     public long getId() {
         return id;
@@ -27,5 +28,13 @@ public class Repository {
 
     public void setFull_name(String full_name) {
         this.full_name = full_name;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 }

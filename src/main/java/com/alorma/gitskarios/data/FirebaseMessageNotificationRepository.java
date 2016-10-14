@@ -25,6 +25,7 @@ public class FirebaseMessageNotificationRepository implements MessagesRepository
             if (issueRepositoryName == null) {
                 throw new UnsupportedOperationException("Event not handled");
             } else {
+                issueRepositoryName = issueRepositoryName.replace("/", "-");
                 return sendMessage(issueRepositoryName, event);
             }
         }
@@ -32,16 +33,16 @@ public class FirebaseMessageNotificationRepository implements MessagesRepository
 
     private MessageResponse sendMessage(String issueRepositoryName, IssueEvent event) throws Exception {
         MessageRequest request = new MessageRequest();
-        request.setTo("/topics/" + issueRepositoryName);
+        String topic = "/topics/" + issueRepositoryName;
+        request.setTo(topic);
         request.setEvent(event);
         Call<MessageResponse> call = messageService.sendMessage(request);
         Response<MessageResponse> response = call.execute();
 
-        if (response.isSuccessful()) {
-            return response.body();
-        } else {
-            throw new Exception(response.errorBody().string());
-        }
+        MessageResponse messageResponse = response.body();
+        messageResponse.setCode(response.code());
+        messageResponse.setTopic(topic);
+        return messageResponse;
     }
 
     private String getIssueName(IssueEvent event) {

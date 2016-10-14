@@ -25,6 +25,9 @@ repositories {
 	mavenCentral()
 }
 
+bootRun {
+	systemProperties['spring.profiles.active']=project.gradle.startParameter.systemPropertiesArgs['spring.profiles.active'];
+}
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')

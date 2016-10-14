@@ -19,12 +19,12 @@ public class MessagesController {
     @RequestMapping(value = "/message", method = RequestMethod.POST)
     public
     @ResponseBody
-    ResponseEntity<String> handleMessage(@RequestBody IssueEvent event) throws Exception {
+    ResponseEntity<MessageResponse> handleMessage(@RequestBody IssueEvent event) throws Exception {
         MessageResponse messageResponse = messagesRepository.sendMessage(event);
         if (messageResponse.getError() != null) {
-            return new ResponseEntity<>(messageResponse.getError(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(messageResponse, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(messageResponse.getMessage_id(), HttpStatus.OK);
+        return new ResponseEntity<>(messageResponse, HttpStatus.OK);
     }
 
 }
