@@ -2,7 +2,7 @@ package com.alorma.gitskarios.domain;
 
 public class MessageRequest {
     private String to;
-    private IssueEvent event;
+    private IssueEvent data;
 
     public String getTo() {
         return to;
@@ -12,11 +12,11 @@ public class MessageRequest {
         this.to = to;
     }
 
-    public IssueEvent getEvent() {
-        return event;
+    public IssueEvent getData() {
+        return data;
     }
 
-    public void setEvent(IssueEvent event) {
-        this.event = event;
+    public void setData(IssueEvent data) {
+        this.data = data;
     }
 }

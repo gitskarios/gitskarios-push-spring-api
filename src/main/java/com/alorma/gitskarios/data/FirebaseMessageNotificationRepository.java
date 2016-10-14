@@ -35,7 +35,7 @@ public class FirebaseMessageNotificationRepository implements MessagesRepository
         MessageRequest request = new MessageRequest();
         String topic = "/topics/" + issueRepositoryName;
         request.setTo(topic);
-        request.setEvent(event);
+        request.setData(event);
         Call<MessageResponse> call = messageService.sendMessage(request);
         Response<MessageResponse> response = call.execute();
 
