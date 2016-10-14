@@ -1,4 +1,4 @@
-package com.alorma.gitskarios.data;
+package com.alorma.gitskarios.domain;
 
 public class Issue {
     private long id;
