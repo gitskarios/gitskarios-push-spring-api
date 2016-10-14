@@ -11,7 +11,7 @@ public class MessagesController {
     @RequestMapping(value = "/message", method = RequestMethod.POST)
     public
     @ResponseBody
-    ResponseEntity<String> handleMessage(IssueEvent event) {
+    ResponseEntity<String> handleMessage(@RequestBody IssueEvent event) {
         return new ResponseEntity<>("Received", HttpStatus.OK);
     }
 
