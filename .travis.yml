@@ -10,3 +10,5 @@ deploy:
   app: cryptic-ravine-97684
   on:
     repo: gitskarios/gitskarios-push-spring-api
+notifications:
+  webhooks: https://travis-notifier.herokuapp.com/notifications
