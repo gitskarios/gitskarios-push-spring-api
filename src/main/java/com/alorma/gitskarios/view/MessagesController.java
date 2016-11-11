@@ -19,12 +19,8 @@ public class MessagesController {
     @RequestMapping(value = "/message", method = RequestMethod.POST)
     public
     @ResponseBody
-    ResponseEntity<MessageResponse> handleMessage(@RequestBody IssueEvent event) throws Exception {
-        MessageResponse messageResponse = messagesRepository.sendMessage(event);
-        if (messageResponse.getError() != null) {
-            return new ResponseEntity<>(messageResponse, HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(messageResponse, HttpStatus.OK);
+    ResponseEntity handleMessage(@RequestBody IssueEvent event) throws Exception {
+        return messagesRepository.sendMessage(event);
     }
 
 }

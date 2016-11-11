@@ -1,7 +1,7 @@
 package com.alorma.gitskarios.domain;
 
-import com.alorma.gitskarios.domain.response.MessageResponse;
+import org.springframework.http.ResponseEntity;
 
 public interface MessagesRepository {
-    MessageResponse sendMessage(IssueEvent event) throws Exception;
+    ResponseEntity sendMessage(IssueEvent event) throws Exception;
 }

@@ -1,0 +1,12 @@
+language: java
+jdk:
+- oraclejdk8
+before_script: chmod +x gradlew
+script: ./gradlew build
+deploy:
+  provider: heroku
+  api_key:
+    secure: jLiV8eDKfJCZt5vypBAOTFxyWBc7U5H+ETac/kWI3h1ExZx/Dp5RMRrC2BZdtcL8ouNi6q3TzPDSe+GuI9JPQVaF1A93DwlkcQeqtJPv7bxwtgyGTjMbBwvhSNcFy8RRgL3gvgJjbpHwFLdiBVt9HvTxJnta5y1tBF6yacTWx0I4bIzoz2oweGpE0qzNGWnrn8/BgiO4/vvVi6ky7Df+bnJq6s2od7Ea6XGnTbkMz75KobqfBH4YOnWAwMlcNFcP2QhZcY2iut9RjQkf68NGGoYs3vfYIfSTcV4LY1fHSdH383gWAxecA37D00OOIe+/UeQAzJ/JYFKc0vLTcm0WG/fNweCNaKYD1p95bInWPrQmKS7z8dy5gMTlV4r1IEWDtbpR5ZfS5jq4jb8LiUBXMk0qZiQMMJ5hNav5BgMwReyT6rvhqAbZEZQqEACfnA2aPZaNH9VgLH063TQg3NviSKjZrPgKVY3XlOTxHoUZvY9zFlKmyi6f1X6gQspdQWdEsTN78NPBpp+EZ/boN0csa4IY9GNIi1xgxxLM272MGyEPnFVYHRKkqYs/pJ+tyQu/qYutYhy0hEJVSqGFdYpZhq/GnukUNToqeB4adYqkP1rmnZvCYQ/2DdNkkHcJhojK74IepkZZ89fyLn9VtvQaBR/BlaDd0DyuERGCChbm0O4=
+  app: cryptic-ravine-97684
+  on:
+    repo: gitskarios/gitskarios-push-spring-api
